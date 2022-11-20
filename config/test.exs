@@ -8,11 +8,12 @@ config :marley_spoon, MarleySpoonWeb.Endpoint,
   server: false
 
 # In test we don't send emails.
-config :marley_spoon, MarleySpoon.Mailer,
-  adapter: Swoosh.Adapters.Test
+config :marley_spoon, MarleySpoon.Mailer, adapter: Swoosh.Adapters.Test
 
 # Print only warnings and errors during test
 config :logger, level: :warn
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :marley_spoon, MarleySpoon.Extractor, enabled: false

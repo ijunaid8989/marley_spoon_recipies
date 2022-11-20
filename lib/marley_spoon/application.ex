@@ -16,7 +16,8 @@ defmodule MarleySpoon.Application do
       MarleySpoonWeb.Endpoint,
       MarleySpoon.Cache.Chefs,
       MarleySpoon.Cache.Recipes,
-      MarleySpoon.Cache.Tags
+      MarleySpoon.Cache.Tags,
+      MarleySpoon.Extractor
       # Start a worker by calling: MarleySpoon.Worker.start_link(arg)
       # {MarleySpoon.Worker, arg}
     ]

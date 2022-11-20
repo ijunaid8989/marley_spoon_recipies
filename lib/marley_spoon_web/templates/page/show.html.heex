@@ -1,0 +1,21 @@
+<section class="row">
+  <article class="column">
+    <h2>Recipe</h2>
+    <p><b>Title:</b> <%= @recipe.title %></p>
+    <p>
+      <%= for image <- @recipe.images do %>
+        <img src={image} />
+      <% end %>
+    </p>
+    <p>
+      <b>Tags:</b>
+      <ul>
+        <%= for tag <- @recipe.tags do %>
+          <li><%= tag %></li>
+        <% end %>
+      </ul>
+    </p>
+    <p><b>Description:</b> <%= @recipe.description %></p>
+    <p><b>Chef Name:</b> <%= @recipe.chef %></p>
+  </article>
+</section>

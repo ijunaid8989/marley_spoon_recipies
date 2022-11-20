@@ -10,10 +10,10 @@ defmodule MarleySpoon.Request.Contentful do
   def list_entities(content_type) when is_atom(content_type) do
     content_type
     |> Atom.to_string()
-    |> do_fetch_entities()
+    |> do_list_entities()
   end
 
-  defp do_fetch_entities(type) do
+  defp do_list_entities(type) do
     try do
       Entries
       |> content_type(type)

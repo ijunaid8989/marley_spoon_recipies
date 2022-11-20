@@ -1,5 +1,5 @@
 defmodule MarleySpoon.Context.Model do
-  @callback from_map(map) :: {:ok, struct} | {:error, {atom, [keyword()]}}
+  @callback validate_map(map) :: {:ok, struct} | {:error, {atom, [keyword()]}}
   @callback changeset(map) :: Ecto.Changeset.t()
 
   defmacro __using__(_opts) do
@@ -19,7 +19,7 @@ defmodule MarleySpoon.Context.Model do
       @invalid_key :"invalid_#{@model_type}_map"
 
       @impl MarleySpoon.Context.Model
-      def from_map(map) when is_map(map) do
+      def validate_map(map) when is_map(map) do
         case apply_action(changeset(map), :insert) do
           {:error, changeset} ->
             {:error, {@invalid_key, changeset.errors}}

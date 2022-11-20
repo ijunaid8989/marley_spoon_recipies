@@ -48,6 +48,12 @@ if config_env() == :prod do
     ],
     secret_key_base: secret_key_base
 
+    config :contentful, delivery: [
+      access_token: System.get_env("ACCESS_TOKEN"),
+      environment: System.get_env("ENVIRONMENT"),
+      space_id: System.get_env("SPACE_ID")
+    ]
+
   # ## Configuring the mailer
   #
   # In production you need to configure the mailer to use a different adapter.

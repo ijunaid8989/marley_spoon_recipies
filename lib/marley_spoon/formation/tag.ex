@@ -20,7 +20,7 @@ defmodule MarleySpoon.Formation.Tag do
   end
 
   defp validate(term) do
-    case Tag.from_map(term) do
+    case Tag.validate_map(term) do
       {:ok, chef} -> chef
       _ -> :error
     end

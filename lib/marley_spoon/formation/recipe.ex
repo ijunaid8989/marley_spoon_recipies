@@ -38,7 +38,7 @@ defmodule MarleySpoon.Formation.Recipe do
   end
 
   defp validate(term) do
-    case Recipe.from_map(term) |> IO.inspect() do
+    case Recipe.validate_map(term) do
       {:ok, recipe} -> recipe
       _ -> :error
     end
@@ -79,7 +79,7 @@ defmodule MarleySpoon.Formation.Recipe do
 
       case content_type do
         "image/jpeg" ->
-          [host <> path | acc]
+          ["https://" <> host <> path | acc]
 
         _ ->
           acc

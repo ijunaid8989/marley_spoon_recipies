@@ -9,6 +9,7 @@ defmodule MarleySpoon.Cache.Entities do
     end
   end
 
+  @spec get_tags_by_recipe_id(binary) :: {:ok, list(Tags)} | {:error, :not_found}
   def get_tags_by_recipe_id(id) do
     case MarleySpoon.Cache.Recipes.get_by_id(id) do
       %{tags: tags} -> {:ok, Enum.map(tags, &Tags.get_by_id(&1))}
@@ -16,9 +17,9 @@ defmodule MarleySpoon.Cache.Entities do
     end
   end
 
-  @spec all_recipes() :: list(Recipes)
+  @spec all_recipes() :: {:ok, list(Recipes)}
   def all_recipes(), do: {:ok, Recipes.all()}
 
-  @spec all_chefs() :: list(Chefs)
+  @spec all_chefs() :: {:ok, list(Chefs)}
   def all_chefs(), do: {:ok, Chefs.all()}
 end

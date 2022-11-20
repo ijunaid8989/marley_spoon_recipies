@@ -20,7 +20,7 @@ defmodule MarleySpoon.Formation.Chef do
   end
 
   defp validate(term) do
-    case Chef.from_map(term) do
+    case Chef.validate_map(term) do
       {:ok, chef} -> chef
       _ -> :error
     end
