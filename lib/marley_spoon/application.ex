@@ -13,7 +13,10 @@ defmodule MarleySpoon.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: MarleySpoon.PubSub},
       # Start the Endpoint (http/https)
-      MarleySpoonWeb.Endpoint
+      MarleySpoonWeb.Endpoint,
+      MarleySpoon.Cache.Chefs,
+      MarleySpoon.Cache.Recipes,
+      MarleySpoon.Cache.Tags
       # Start a worker by calling: MarleySpoon.Worker.start_link(arg)
       # {MarleySpoon.Worker, arg}
     ]
