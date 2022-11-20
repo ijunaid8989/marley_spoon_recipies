@@ -1,6 +1,4 @@
 defmodule MarleySpoon.Context.Chef do
-  import Ecto.Changeset
-
   use MarleySpoon.Context.Model
 
   @required_fields ~w(name id)a

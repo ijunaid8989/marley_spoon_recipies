@@ -1,19 +1,20 @@
-defmodule MarleySpoon.Context.Image do
+defmodule MarleySpoon.Context.Tag do
+  import Ecto.Changeset
+
   use MarleySpoon.Context.Model
 
-  @fields ~w(id url)a
-  @required_fields @fields
+  @required_fields ~w(name id)a
 
   @primary_key false
   embedded_schema do
+    field(:name, :string)
     field(:id, :string)
-    field(:url, :string)
   end
 
   @impl true
   def changeset(attrs) do
     %__MODULE__{}
-    |> cast(attrs, @fields)
+    |> cast(attrs, @required_fields)
     |> validate_required(@required_fields)
   end
 end
