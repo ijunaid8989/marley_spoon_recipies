@@ -8,7 +8,7 @@ defmodule MarleySpoon.Extractor do
 
   require Logger
 
-  @interval 10_000
+  @interval 60_000
   @entities_to_extract [:tag, :chef, :recipe]
 
   def start_link(args) do
@@ -16,6 +16,7 @@ defmodule MarleySpoon.Extractor do
   end
 
   def init(_) do
+    work()
     :timer.send_interval(@interval, :tick)
 
     {:ok, 0}

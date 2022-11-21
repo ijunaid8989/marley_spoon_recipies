@@ -1,4 +1,7 @@
 defmodule MarleySpoon.Gordan do
+  @doc """
+  Gordan module is named after Gordon Ramsey, it will mix it up everything and brings on recipes as well as Chefs and tags.
+  """
   require Logger
   import MarleySpoon.Request.Contentful, only: [list_entities: 1]
 
