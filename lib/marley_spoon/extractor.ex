@@ -16,10 +16,15 @@ defmodule MarleySpoon.Extractor do
   end
 
   def init(_) do
-    work()
     :timer.send_interval(@interval, :tick)
 
-    {:ok, 0}
+    {:ok, 0, {:continue, :put_to_work}}
+  end
+
+  def handle_continue(put_to_work, state) do
+    work()
+
+    {:noreply, state}
   end
 
   def handle_info(:tick, state) do
